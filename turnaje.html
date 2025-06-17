@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnaje | Filip Urbánoš</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    h1 { color: #003366; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th { background: #003366; color: white; }
+    nav {
+      background:#003366;
+      padding:10px;
+      text-align:center;
+    }
+    nav a {
+      color:white;
+      margin:0 15px;
+      text-decoration: none;
+    }
+    footer {
+      background:#003366;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Domov</a>
+  <a href="o-mne.html">O mne</a>
+  <a href="turnaje.html">Turnaje</a>
+  <a href="galeria.html">Galéria</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<div style="max-width:960px;margin:auto;padding:20px;">
+  <h1>Turnaje 2025</h1>
+  <p>Prehľad plánovaných a odohraných turnajov:</p>
+  <table id="calendar">
+    <thead>
+      <tr>
+        <th>Dátum</th>
+        <th>Turnaj</th>
+        <th>Miesto</th>
+        <th>Výsledok</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dynamicky vygenerované riadky -->
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  &copy; 2025 Filip Urbánoš | Sleduj ma na Instagrame
+</footer>
+
+<script>
+  const turnaje = [
+    { datum: "2025-03-15", nazov: "ITF J30 Bratislava", miesto: "Slovensko", vysledok: "1. miesto" },
+    { datum: "2025-04-10", nazov: "ITF J60 Barcelona", miesto: "Španielsko", vysledok: "Semifinále" },
+    { datum: "2025-05-02", nazov: "Slovenský pohár juniorov", miesto: "Trnava", vysledok: "Víťaz" },
+    { datum: "2025-06-05", nazov: "ITF J100 Milano", miesto: "Taliansko", vysledok: "Štvrťfinále" },
+  ];
+
+  const tbody = document.querySelector("#calendar tbody");
+
+  turnaje.forEach(t => {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td>${t.datum}</td><td>${t.nazov}</td><td>${t.miesto}</td><td>${t.vysledok}</td>`;
+    tbody.appendChild(row);
+  });
+</script>
+
+</body>
+</html>
