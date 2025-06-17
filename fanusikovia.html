@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Fanúšikovia | Filip Urbánoš</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+    h1 { color: #003366; text-align:center; padding: 20px; }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<nav style="background:#003366;padding:10px;">
+  <div style="max-width:960px;margin:auto;display:flex;gap:20px;">
+    <a href="index.html" class="nav-link">Domov</a>
+    <a href="o-mne.html" class="nav-link">O mne</a>
+    <a href="turnaje.html" class="nav-link">Turnaje</a>
+    <a href="galeria.html" class="nav-link">Galéria</a>
+    <a href="sponzori.html" class="nav-link">Sponzori</a>
+    <a href="kontakt.html" class="nav-link">Kontakt</a>
+  </div>
+</nav>
+<script>
+  // Zvýrazni aktívnu stránku
+  const links = document.querySelectorAll('.nav-link');
+  const path = window.location.pathname.split("/").pop();
+  links.forEach(link => {{
+    if(link.getAttribute("href") === path) {{
+      link.style.color = "#f9a825";
+      link.style.fontWeight = "bold";
+    }} else {{
+      link.style.color = "#ffffff";
+    }}
+  }});
+</script>
+
+<h1>Napíš Filipovi správu</h1>
+
+<form action="https://formspree.io/f/mqkrwljj" method="POST">
+  <label for="name">Tvoje meno:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Tvoj email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="message">Správa:</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+  <button type="submit">Odoslať správu</button>
+</form>
+
+</body>
+</html>
