@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Kariéra | Filip Urbánoš</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+    h1 { color: #003366; text-align: center; padding: 20px; }
+    .timeline {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .event {
+      border-left: 4px solid #003366;
+      padding-left: 10px;
+      margin: 10px 0;
+      position: relative;
+    }
+    .event::before {
+      content: "🎾";
+      position: absolute;
+      left: -22px;
+      top: 0;
+    }
+    .event h3 {
+      margin: 0;
+      color: #003366;
+    }
+    .event p {
+      margin: 5px 0 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav style="background:#003366;padding:10px;">
+  <div style="max-width:960px;margin:auto;display:flex;gap:20px;">
+    <a href="index.html" class="nav-link">Domov</a>
+    <a href="o-mne.html" class="nav-link">O mne</a>
+    <a href="turnaje.html" class="nav-link">Turnaje</a>
+    <a href="galeria.html" class="nav-link">Galéria</a>
+    <a href="sponzori.html" class="nav-link">Sponzori</a>
+    <a href="kontakt.html" class="nav-link">Kontakt</a>
+  </div>
+</nav>
+<script>
+  // Zvýrazni aktívnu stránku
+  const links = document.querySelectorAll('.nav-link');
+  const path = window.location.pathname.split("/").pop();
+  links.forEach(link => {{
+    if(link.getAttribute("href") === path) {{
+      link.style.color = "#f9a825";
+      link.style.fontWeight = "bold";
+    }} else {{
+      link.style.color = "#ffffff";
+    }}
+  }});
+</script>
+
+<h1>Kariérna časová os</h1>
+
+<div class="timeline">
+  <div class="event">
+    <h3>2023</h3>
+    <p>Vicemajster Slovenska v štvorhre do 14 rokov</p>
+  </div>
+  <div class="event">
+    <h3>2024</h3>
+    <p>Víťaz viacerých medzinárodných turnajov (štvorhra do 14)</p>
+  </div>
+  <div class="event">
+    <h3>2025</h3>
+    <p>Začiatok na ITF Junior Tour, 1. miesto na ITF J30</p>
+  </div>
+</div>
+
+</body>
+</html>

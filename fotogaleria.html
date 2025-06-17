@@ -2,7 +2,27 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Galeria</title>
+  <title>Fotogaléria | Filip Urbánoš</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+    h1 { color: #003366; text-align: center; padding: 20px; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -30,6 +50,12 @@
   }});
 </script>
 
-<h1 style="text-align:center;">Galeria</h1>
+<h1>Fotogaléria</h1>
+
+<div class="gallery">
+  <img src="004d6a0f-fe30-47ca-a1ab-ab52259c8cf8.jpeg" alt="Filip 1">
+  <img src="agromepa-logo.png" alt="Logo sponzora">
+</div>
+
 </body>
 </html>

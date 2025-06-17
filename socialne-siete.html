@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Sociálne siete | Filip Urbánoš</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    h1 { text-align: center; color: #003366; padding: 20px; }
+    .social-container {
+      max-width: 960px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<nav style="background:#003366;padding:10px;">
+  <div style="max-width:960px;margin:auto;display:flex;gap:20px;">
+    <a href="index.html" class="nav-link">Domov</a>
+    <a href="o-mne.html" class="nav-link">O mne</a>
+    <a href="turnaje.html" class="nav-link">Turnaje</a>
+    <a href="galeria.html" class="nav-link">Galéria</a>
+    <a href="sponzori.html" class="nav-link">Sponzori</a>
+    <a href="kontakt.html" class="nav-link">Kontakt</a>
+  </div>
+</nav>
+<script>
+  // Zvýrazni aktívnu stránku
+  const links = document.querySelectorAll('.nav-link');
+  const path = window.location.pathname.split("/").pop();
+  links.forEach(link => {{
+    if(link.getAttribute("href") === path) {{
+      link.style.color = "#f9a825";
+      link.style.fontWeight = "bold";
+    }} else {{
+      link.style.color = "#ffffff";
+    }}
+  }});
+</script>
+
+<h1>Sleduj Filipa na sociálnych sieťach</h1>
+
+<div class="social-container">
+  <div>
+    <h2>Instagram (demo)</h2>
+    <iframe src="https://lightwidget.com/widgets/96c1e47b2b695f80a3b7b158.html" scrolling="no" allowtransparency="true"></iframe>
+  </div>
+
+  <div>
+    <h2>YouTube (demo video)</h2>
+    <iframe width="500" height="281" src="https://www.youtube.com/embed/Re0CicVGrJ4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+</body>
+</html>

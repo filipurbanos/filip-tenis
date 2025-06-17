@@ -2,21 +2,26 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Filip Urbánoš - Domov</title>
+  <title>Štatistiky | Filip Urbánoš</title>
   <style>
     body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
     h1 { color: #003366; text-align:center; padding: 20px; }
-    a { text-decoration: none; }
-  </style>
-
-  <link rel="manifest" href="manifest.json">
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').then(() => {
-        console.log('Service Worker registered');
-      });
+    .stats {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-  </script>
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .stat:last-child { border-bottom: none; }
+  </style>
 </head>
 <body>
 
@@ -44,6 +49,16 @@
   }});
 </script>
 
-<h1>Vitajte na stránke Filipa Urbánoša</h1>
+<h1>Štatistiky 2025</h1>
+
+<div class="stats">
+  <div class="stat"><span>ITF rebríček:</span><strong>1425</strong></div>
+  <div class="stat"><span>Výhry:</span><strong>18</strong></div>
+  <div class="stat"><span>Prehry:</span><strong>7</strong></div>
+  <div class="stat"><span>Úspešnosť:</span><strong>72%</strong></div>
+  <div class="stat"><span>Turnaje odohrané:</span><strong>11</strong></div>
+  <div class="stat"><span>Najlepší výsledok:</span><strong>Finále ITF J60</strong></div>
+</div>
+
 </body>
 </html>

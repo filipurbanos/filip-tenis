@@ -2,104 +2,89 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Turnaje | Filip Urbánoš</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
-    h1 { color: #003366; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: white;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+    h1 { color: #003366; text-align:center; padding: 20px; }
+    table { margin: auto; width: 90%; border-collapse: collapse; background: white; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
     th { background: #003366; color: white; }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-top: 20px;
-      font-size: 1em;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+    .export-btn { display: block; margin: 20px auto; padding: 10px 20px; background: #f9a825; color: white; border: none; cursor: pointer; border-radius: 5px; }
   </style>
 </head>
 <body>
 
-<nav style="background:#003366;padding:10px;text-align:center;">
-  <a href="index.html" style="color:white;margin:0 10px;">Domov</a>
-  <a href="o-mne.html" style="color:white;margin:0 10px;">O mne</a>
-  <a href="turnaje.html" style="color:white;margin:0 10px;">Turnaje</a>
-  <a href="galeria.html" style="color:white;margin:0 10px;">Galéria</a>
-  <a href="sponzori.html" style="color:white;margin:0 10px;">Sponzori</a>
-  <a href="kontakt.html" style="color:white;margin:0 10px;">Kontakt</a>
-  <span style="margin-left:20px;"><a href="index-en.html" style="color:#fdd835;">EN</a> | <a href="index.html" style="color:#fdd835;">SK</a></span>
+<nav style="background:#003366;padding:10px;">
+  <div style="max-width:960px;margin:auto;display:flex;gap:20px;">
+    <a href="index.html" class="nav-link">Domov</a>
+    <a href="o-mne.html" class="nav-link">O mne</a>
+    <a href="turnaje.html" class="nav-link">Turnaje</a>
+    <a href="galeria.html" class="nav-link">Galéria</a>
+    <a href="sponzori.html" class="nav-link">Sponzori</a>
+    <a href="kontakt.html" class="nav-link">Kontakt</a>
+  </div>
 </nav>
-
-<div style="max-width:960px;margin:auto;padding:20px;">
-  <h1>Turnaje 2025</h1>
-  <input type="text" id="searchInput" placeholder="Filtrovať podľa názvu alebo miesta...">
-  <p><a href="turnaje.ics" download>📅 Stiahnuť turnaje do kalendára (.ics)</a></p>
-  <table id="calendar">
-    <thead>
-      <tr>
-        <th>Dátum</th>
-        <th>Turnaj</th>
-        <th>Miesto</th>
-        <th>Výsledok</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Riady sa dynamicky doplnia -->
-    </tbody>
-  </table>
-</div>
-
-<footer style="background:#003366;color:white;text-align:center;padding:20px;margin-top:40px;">
-  &copy; 2025 Filip Urbánoš | Sleduj ma na Instagrame
-</footer>
-
-
 <script>
-  const turnaje = [
-    { datum: "2024-12-17", nazov: "HMR Bratislavský región U18", miesto: "STU Bratislava", vysledok: "1. miesto štvorhra" },
-    { datum: "2024-10-20", nazov: "Monty Tour", miesto: "Španielsko", vysledok: "1.miesto Dvojhra" },
-    { datum: "2023-12-20", nazov: "HMR Bratislavský región U14", miesto: "TK Jednotka Bratislava", vysledok: "1. miesto dvojhra aj štvorhra" },   
-    { datum: "2023-08-07", nazov: "TEJ U14 Mogyorod", miesto: "Maďarsko", vysledok: "1.miesto štvorhra" },
-    { datum: "2023-06-26", nazov: "TEJ U14 Zvolen", miesto: "Slovensko", vysledok: "2.miesto Dvojhra aj štvorhra" },
-    { datum: "2023-06-09", nazov: "MSR U14", miesto: "Slovensko", vysledok: "3.miesto štvorhra" },
-    { datum: "2023-03-11", nazov: "TEJ U14", miesto: "Prešov", vysledok: "Víťaz štvorhry" },
-    { datum: "2023-01-10", nazov: "HMSR U14", miesto: "Slovensko", vysledok: "2.miesto štvorhra" },
-    { datum: "2021-09-20", nazov: "TEJ U12 Humenné", miesto: "Slovensko", vysledok: "3.miesto Dvojhra" },
-  ];
-
-  const tbody = document.querySelector("#calendar tbody");
-  const searchInput = document.getElementById("searchInput");
-
-  function renderTable(data) {
-    tbody.innerHTML = "";
-    data.forEach(t => {
-      const row = document.createElement("tr");
-      row.innerHTML = `<td>${t.datum}</td><td>${t.nazov}</td><td>${t.miesto}</td><td>${t.vysledok}</td>`;
-      tbody.appendChild(row);
-    });
-  }
-
-  searchInput.addEventListener("input", () => {
-    const term = searchInput.value.toLowerCase();
-    const filtered = turnaje.filter(t =>
-      t.nazov.toLowerCase().includes(term) || t.miesto.toLowerCase().includes(term)
-    );
-    renderTable(filtered);
-  });
-
-  renderTable(turnaje);
+  // Zvýrazni aktívnu stránku
+  const links = document.querySelectorAll('.nav-link');
+  const path = window.location.pathname.split("/").pop();
+  links.forEach(link => {{
+    if(link.getAttribute("href") === path) {{
+      link.style.color = "#f9a825";
+      link.style.fontWeight = "bold";
+    }} else {{
+      link.style.color = "#ffffff";
+    }}
+  }});
 </script>
 
+<h1>Turnaje 2025</h1>
+<table>
+  <thead>
+    <tr><th>Dátum</th><th>Názov</th><th>Miesto</th><th>Výsledok</th></tr>
+  </thead>
+  <tbody id="turnaje-telo"></tbody>
+</table>
+
+<button class="export-btn" onclick="exportICS()">📅 Export do kalendára</button>
+
+<script>
+const turnaje = [
+  { datum: "2025-03-15", nazov: "ITF J30 Bratislava", miesto: "Slovensko", vysledok: "1. miesto" },
+  { datum: "2025-04-10", nazov: "ITF J60 Barcelona", miesto: "Španielsko", vysledok: "Semifinále" },
+  { datum: "2025-05-02", nazov: "ITF J60 Linz", miesto: "Rakúsko", vysledok: "Štvrťfinále" }
+];
+
+const tbody = document.getElementById("turnaje-telo");
+turnaje.forEach(t => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `<td>{t.datum}</td><td>{t.nazov}</td><td>{t.miesto}</td><td>{t.vysledok}</td>`;
+  tbody.appendChild(tr);
+});
+
+function exportICS() {
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//FilipUrbános//Turnaje//SK"
+  ];
+  turnaje.forEach((t, i) => {
+    const dt = t.datum.replace(/-/g, "");
+    ics.push("BEGIN:VEVENT");
+    ics.push("UID:turnaj" + i + "@filipurbanos.sk");
+    ics.push("DTSTAMP:" + dt + "T080000Z");
+    ics.push("DTSTART;VALUE=DATE:" + dt);
+    ics.push("SUMMARY:" + t.nazov + " – " + t.miesto);
+    ics.push("DESCRIPTION:Výsledok: " + t.vysledok);
+    ics.push("END:VEVENT");
+  });
+  ics.push("END:VCALENDAR");
+  const blob = new Blob([ics.join("\r\n")], { type: "text/calendar" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "filip_turnaje.ics";
+  link.click();
+}
+</script>
 </body>
 </html>
