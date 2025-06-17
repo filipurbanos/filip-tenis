@@ -3,34 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Filip Urbánoš</title>
+  <title>Filip Urbánoš - Domov</title>
   <style>
-    body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:0; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
     h1 { color: #003366; }
-    .stat-boxes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin: 30px 0;
-    }
-    .stat {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      flex: 1;
-      min-width: 200px;
-    }
-    form, input, textarea {
-      width:100%; max-width:600px; margin:auto; display:block; padding:10px;
-    }
-    input, textarea { margin-bottom:10px; border:1px solid #ccc; border-radius:5px; }
-    button {
-      background:#f9a825; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;
-    }
-    .upload-demo { text-align: center; padding: 20px; background: #fff; border-radius: 10px; }
+    .stats { display: flex; justify-content: space-around; flex-wrap: wrap; margin: 30px 0; }
+    .stat { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 200px; text-align: center; margin: 10px; }
+    .newsletter { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+    form input { padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    form button { background: #f9a825; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+    form button:hover { background: #f57f17; }
   </style>
 </head>
 <body>
@@ -47,42 +29,23 @@
 
 <div style="max-width:960px;margin:auto;padding:20px;">
   <h1>Vitaj na oficiálnej stránke Filipa Urbánoša</h1>
-  <p>Mladý tenisový talent zo Slovenska. Sleduj jeho výkony na ITF okruhu a podporte jeho cestu medzi profesionálov.</p>
+  <p>Filip je 15-ročný tenisový talent zo Slovenska. Sleduj jeho športovú cestu, turnaje a výsledky.</p>
 
-  <div class="stat-boxes">
-    <div class="stat">
-      <h2>45</h2>
-      <p>Odohraných zápasov</p>
-    </div>
-    <div class="stat">
-      <h2>32</h2>
-      <p>Výhier</p>
-    </div>
-    <div class="stat">
-      <h2>4</h2>
-      <p>Turnajové víťazstvá</p>
-    </div>
-    <div class="stat">
-      <h2>#1250</h2>
-      <p>ITF Juniorský ranking</p>
-    </div>
+  <h2>📈 Štatistiky</h2>
+  <div class="stats">
+    <div class="stat"><strong>32</strong><br>Výhier</div>
+    <div class="stat"><strong>10</strong><br>Prehier</div>
+    <div class="stat"><strong>#1250</strong><br>ITF Rank</div>
+    <div class="stat"><strong>4h + 1.5h</strong><br>Denný tréning</div>
   </div>
 
-  <h2>Prihlásenie na odber noviniek</h2>
-  <form action="https://formspree.io/f/mayvlkpo" method="POST">
-    <input type="email" name="email" placeholder="Zadaj svoj email" required>
-    <button type="submit">Prihlásiť sa</button>
-  </form>
-
-  <h2>Demo: Nahraj fotku do galérie</h2>
-  <div class="upload-demo">
-    <p>Táto funkcia je len ukážková – nahrávanie cez GitHub Pages nie je možné.</p>
-    <input type="file" disabled title="Toto je iba demo – nefunkčné na GitHub Pages">
+  <h2>📬 Odber noviniek</h2>
+  <div class="newsletter">
+    <form action="https://formspree.io/f/mayvlkpo" method="POST">
+      <input type="email" name="email" placeholder="Zadaj svoj email" required>
+      <button type="submit">Prihlásiť sa na odber</button>
+    </form>
   </div>
-
-  <h2>Stiahni si kalendár turnajov</h2>
-  <p><a href="filip_turnaje.ics" download>📅 Stiahnuť turnaje do Google Kalendára</a></p>
-
 </div>
 
 <footer style="background:#003366;color:white;text-align:center;padding:20px;margin-top:40px;">
